@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "description": "react组件markdown文档生成",
   "main": "index.js",
+  "bin": {
+    "react-docgen-markdown": "./built/index.js"
+  },
   "scripts": {
     "test": "jest",
-    "cm": "git-cz"
+    "cm": "git-cz",
+    "build": "rollup -c rollup.config.js && chmod +x built/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,12 +35,16 @@
     "cz-conventional-changelog": "^2.1.0",
     "doctrine": "^3.0.0",
     "jest": "^24.5.0",
-    "react": "^16.8.4"
+    "react": "^16.8.4",
+    "rollup": "^1.6.0",
+    "rollup-plugin-copy": "^0.2.3"
   },
   "dependencies": {
+    "fs-extra": "^7.0.1",
     "handlebars": "^4.1.0",
-    "immutability-helper": "^3.0.0",
     "react-docgen": "^4.1.0",
+    "rollup-plugin-flow": "^1.1.1",
+    "walk": "^2.3.14",
     "yargs": "^13.2.2"
   },
   "config": {

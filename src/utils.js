@@ -1,7 +1,6 @@
 import {parse} from "react-docgen"
 import fs from "fs"
 import {parse as jsdocParse} from "doctrine"
-import update from "immutability-helper"
 import template from "./template"
 
 const KEY_DESCRIPTION = "description";
@@ -36,13 +35,21 @@ function parseDesc(info: Object) {
     }
 }
 
-export function getComponentInfo(filename) {
+export function getComponentInfo(filename): ?Object {
     const content = fs.readFileSync(filename, "utf8");
-    let info = parse(content);
-    parseDesc(info)
-    return info;
+    try {
+        let info = parse(content);
+        parseDesc(info)
+        return info;
+    }
+    catch (ex) {
+        return null;
+    }
 }
 
-export function generateString(info: Object): string {
-    return template(info);
+export function generateDocString(info: Object): string {
+    if (info) {
+        return template(info);
+    }
+    return null;
 }
