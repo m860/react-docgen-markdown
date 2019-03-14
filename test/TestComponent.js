@@ -46,6 +46,18 @@ export default class TestComponent extends React.Component<Props, State> {
         })
     }
 
+    /**
+     * @private
+     */
+    _aPrivateMethod(): void {
+    }
+
+    /**
+     * @ignore
+     */
+    ignoreMethod() {
+    }
+
     render() {
         return (
             <div>

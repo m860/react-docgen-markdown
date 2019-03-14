@@ -1,7 +1,7 @@
 # {{displayName}}
 
 {{#hastag description "author"}}
-__author:{{tag description "author"}}__
+__author : {{tag description "author"}}__
 {{/hastag}}
 
 {{tag description "description"}}
@@ -24,6 +24,10 @@ __author:{{tag description "author"}}__
 ## methods
 
 {{#each methods}}
+{{#hasnottag docblock "private"}}
+{{#hasnottag docblock "ignore"}}
 - `{{name}}` **({{#each params}}{{name}}{{#if optional}}?{{/if}}:{{flow type}}{{/each}})=>{{flow returns/type}}**
+{{/hasnottag}}
+{{/hasnottag}}
 {{/each}}
 {{/if}}

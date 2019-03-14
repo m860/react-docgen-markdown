@@ -27,6 +27,17 @@ Handlerbars.registerHelper("hastag", function (value, tagName, option) {
     return null;
 });
 
+Handlerbars.registerHelper("hasnottag", function (value, tagName, option) {
+    if (!value) {
+        return option.fn(this);
+    }
+    const has = !!value.tags.find(f => f.title === tagName);
+    if (!has) {
+        return option.fn(this);
+    }
+    return null;
+});
+
 Handlerbars.registerHelper("forin", function (value, option) {
     let strs = [];
     for (let key in value) {
@@ -39,10 +50,13 @@ Handlerbars.registerHelper("forin", function (value, option) {
 });
 
 Handlerbars.registerHelper("flow", function (value) {
-    if (value.raw) {
-        return value.raw;
+    if (value) {
+        if (value.raw) {
+            return value.raw;
+        }
+        return value.name;
     }
-    return value.name;
+    return "void";
 })
 
 export default Handlerbars.compile(fs.readFileSync(path.resolve(__dirname, "./doc.handlebars"), "utf8"));
