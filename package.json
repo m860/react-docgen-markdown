@@ -1,0 +1,39 @@
+{
+  "name": "react-docgen-markdown",
+  "version": "0.0.1",
+  "description": "react组件markdown文档生成",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "cm": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m860/react-docgen-markdown.git"
+  },
+  "keywords": [
+    "react",
+    "doc",
+    "markdown"
+  ],
+  "author": "m860",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m860/react-docgen-markdown/issues"
+  },
+  "homepage": "https://github.com/m860/react-docgen-markdown#readme",
+  "devDependencies": {
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "jest": "^24.5.0"
+  },
+  "dependencies": {
+    "react-docgen": "^4.1.0",
+    "yargs": "^13.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
