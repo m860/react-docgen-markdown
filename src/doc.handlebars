@@ -1,0 +1,29 @@
+# {{displayName}}
+
+{{#hastag description "author"}}
+__author:{{tag description "author"}}__
+{{/hastag}}
+
+{{tag description "description"}}
+
+{{#hastag description "example"}}
+```javascript
+{{tag description "example"}}
+```
+{{/hastag}}
+
+{{#if props}}
+## props
+
+{{#forin props}}
+- `{{$key}}{{#unless required}}?{{/unless}}` **{{flowType/name}}** {{tag description "description"}}
+{{/forin}}
+{{/if}}
+
+{{#if methods.length}}
+## methods
+
+{{#each methods}}
+- `{{name}}` **({{#each params}}{{name}}{{#if optional}}?{{/if}}:{{flow type}}{{/each}})=>{{flow returns/type}}**
+{{/each}}
+{{/if}}

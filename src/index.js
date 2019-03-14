@@ -1,4 +1,6 @@
-/**
- * @overview 文件描述
- * @author jean.h.ma
- */
+import yargs from "yargs"
+
+const argv = yargs.help()
+    .alias("h", "help")
+    .alias("v", "version")
+    .argv;
