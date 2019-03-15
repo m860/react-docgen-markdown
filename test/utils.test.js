@@ -1,15 +1,38 @@
-/**
- * @overview 文件描述
- * @author jean.h.ma
- */
-import {getComponentInfo, generateDocString} from "../src/utils";
+import {getComponentInfo, generateDocString, generateTableContent} from "../src/utils";
 import path from "path"
+import {walk} from "walk"
 
-test("generateDocString doc", () => {
-    // const componentPath = path.resolve(__dirname, "components/TestComponent.js");
-    const componentPath = path.resolve(__dirname, "components/nest/NestComponent.js");
+test("generate doc", () => {
+    const componentPath = path.resolve(__dirname, "components/TestComponent.js");
     const info = getComponentInfo(componentPath);
-    console.log(info);
+    // console.log(info);
     const str = generateDocString(info);
-    console.log(str);
-})
+    // console.log(str);
+    expect(str).toEqual(expect.stringContaining("测试组件"));
+    expect(str).toEqual(expect.stringContaining("__author : m860__"));
+    expect(str).toEqual(expect.stringContaining("- `name` **string** 姓名"));
+    expect(str).toEqual(expect.stringContaining("- `age?` **number** 年龄"));
+    expect(str).toEqual(expect.stringContaining("- `getName` **()=>string**"));
+    expect(str).toEqual(expect.stringContaining("- `getAge` **()=>number | undefined**"));
+    expect(str).toEqual(expect.stringContaining("- `setAge` **(age:number)=>void**"));
+    expect(str).not.toEqual(expect.stringContaining("- `_aPrivateMethod`"));
+    expect(str).not.toEqual(expect.stringContaining("- `ignoreMethod`"));
+});
+
+test("table-content", (callback) => {
+    const walker = walk(path.resolve(__dirname, "doc"), {
+        followLinks: false
+    });
+    let filenames = [];
+    walker.on("file", (root, {name}, next) => {
+        filenames.push({filename: path.join(root, name)});
+        next();
+    });
+    walker.on("end", () => {
+        const tableContent = generateTableContent(filenames);
+        const filename = filenames[0].filename;
+        const name = path.basename(filename, ".md");
+        expect(tableContent).toEqual(expect.stringContaining(`- [${name}](#${name.toLowerCase()})`));
+        callback();
+    });
+});

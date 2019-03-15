@@ -2,6 +2,10 @@ import {parse} from "react-docgen"
 import fs from "fs"
 import {parse as jsdocParse} from "doctrine"
 import template from "./template"
+import {walk} from "walk"
+import type {TableContent, TableContentItem} from "./types";
+import Handlebars from "handlebars"
+import path from "path";
 
 const KEY_DESCRIPTION = "description";
 const KEY_DOCBLOCK = "docblock";
@@ -52,4 +56,23 @@ export function generateDocString(info: Object): string {
         return template(info);
     }
     return null;
+}
+
+export function generateTableContent(data: Array<TableContent>): string {
+    const content = fs.readFileSync(path.resolve(__dirname, "./table-content.handlebars"), "utf8");
+    Handlebars.registerHelper("lowercase", (value) => {
+        if (value && typeof value === "string" && value.length > 0) {
+            return value.toLowerCase();
+        }
+        return null;
+    });
+    const template = Handlebars.compile(content);
+    const context = {
+        content: data.map((item: TableContent): TableContentItem => {
+            return {
+                name: path.basename(item.filename, ".md")
+            };
+        })
+    };
+    return template(context);
 }

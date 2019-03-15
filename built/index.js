@@ -123,6 +123,25 @@ function generateDocString(info        )         {
     return null;
 }
 
+function generateTableContent(data                     )         {
+    const content = fs.readFileSync(path.resolve(__dirname, "./table-content.handlebars"), "utf8");
+    Handlerbars.registerHelper("lowercase", (value) => {
+        if (value && typeof value === "string" && value.length > 0) {
+            return value.toLowerCase();
+        }
+        return null;
+    });
+    const template = Handlerbars.compile(content);
+    const context = {
+        content: data.map((item              )                   => {
+            return {
+                name: path.basename(item.filename, ".md")
+            };
+        })
+    };
+    return template(context);
+}
+
 /**
  * @overview 文件描述
  * @author jean.h.ma
@@ -181,6 +200,10 @@ var readme = {
         },
         cwd: {
             describe: "默认值是 process.cwd()"
+        },
+        "table-content": {
+            default: false,
+            type: "boolean"
         }
     },
     handler: (argv) => {
@@ -196,11 +219,14 @@ var readme = {
         const begin = readmeContent.slice(0, beginPosition + beginTag.length);
         const end = readmeContent.slice(endPosition);
         let strs = [begin];
+        let filenames = [];
+
         const walker = walk.walk(src, {
             followLinks: false
         });
         walker.on("file", (root, {name}, next) => {
             const filename = path.join(root, name);
+            filenames.push({filename});
             //insert new doc
             const content = fs.readFileSync(filename, "utf8");
             strs.push(content);
@@ -208,6 +234,10 @@ var readme = {
         });
         walker.on("end", () => {
             strs.push(end);
+            if (argv["table-content"]) {
+                //生成table content
+                strs.splice(1, 0, generateTableContent(filenames));
+            }
             fs.writeFileSync(readmeFilename, strs.join("\n"), "utf8");
         });
     }

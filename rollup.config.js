@@ -12,7 +12,8 @@ export default {
         flow({all: true}),
         copy({
             verbose: true,
-            "./src/doc.handlebars": "./built/doc.handlebars"
+            "./src/doc.handlebars": "./built/doc.handlebars",
+            "./src/table-content.handlebars": "./built/table-content.handlebars"
         })
     ]
 }
