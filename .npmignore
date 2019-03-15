@@ -2,3 +2,7 @@ jest.config.js
 src
 rollup.config.js
 test
+.babelrc
+.releaserc
+.travis.yml
+.idea
