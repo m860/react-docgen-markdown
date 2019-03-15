@@ -2,6 +2,8 @@
 
 生成react组件的markdown文档
 
+[![Build Status](https://travis-ci.org/m860/react-docgen-markdown.svg?branch=master)](https://travis-ci.org/m860/react-docgen-markdown)
+
 ## Install
 
 ```bash
