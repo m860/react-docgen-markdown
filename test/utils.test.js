@@ -19,6 +19,17 @@ test("generate doc", () => {
     expect(str).not.toEqual(expect.stringContaining("- `ignoreMethod`"));
 });
 
+// /**
+//  * react-docgen bug 这样定义的组件不能被发现
+//  */
+// test("test Pure Function Component", () => {
+//     const componentPath = path.resolve(__dirname, "components/nest/Test2Component.js");
+//     const info = getComponentInfo(componentPath);
+//     console.log(info);
+//     const str = generateDocString(info);
+//     // console.log(str);
+// });
+
 test("table-content", (callback) => {
     const walker = walk(path.resolve(__dirname, "doc"), {
         followLinks: false
