@@ -12,6 +12,7 @@ $ npm i react-docgen-markdown -D
 
 ```
 $ react-docgen-markdown build test/components --output test/doc
+$ react-docgen-markdown readme ...
 ```
 
-[生成的example doc](./test/doc/TestComponent.md)
+[example doc](./test/doc/TestComponent.md) [example readme](./test/README.md)
