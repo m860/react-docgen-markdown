@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-$ npm i react-docgen-markdown -D
+$ npm i @m860/react-docgen-markdown -D
 ```
 
 ## Simple Usage

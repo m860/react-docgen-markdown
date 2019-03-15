@@ -1,5 +1,5 @@
 {
-  "name": "react-docgen-markdown",
+  "name": "@m860/react-docgen-markdown",
   "version": "0.0.1",
   "description": "react组件markdown文档生成",
   "main": "index.js",
