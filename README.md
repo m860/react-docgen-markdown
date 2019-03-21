@@ -2,7 +2,14 @@
 
 生成react组件的markdown文档
 
+<!-- badge -->
+[![npm version](https://img.shields.io/npm/v/@m860/react-docgen-markdown.svg)](https://www.npmjs.com/package/@m860/react-docgen-markdown)
+[![npm license](https://img.shields.io/npm/l/@m860/react-docgen-markdown.svg)](https://www.npmjs.com/package/@m860/react-docgen-markdown)
+[![npm download](https://img.shields.io/npm/dm/@m860/react-docgen-markdown.svg)](https://www.npmjs.com/package/@m860/react-docgen-markdown)
+[![npm download](https://img.shields.io/npm/dt/@m860/react-docgen-markdown.svg)](https://www.npmjs.com/package/@m860/react-docgen-markdown)
+<!-- endbadge -->
 [![Build Status](https://travis-ci.org/m860/react-docgen-markdown.svg?branch=master)](https://travis-ci.org/m860/react-docgen-markdown)
+[![Coverage Status](https://coveralls.io/repos/github/m860/react-docgen-markdown/badge.svg?branch=master)](https://coveralls.io/github/m860/react-docgen-markdown?branch=master)
 
 ## Install
 

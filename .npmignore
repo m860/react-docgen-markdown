@@ -6,3 +6,5 @@ test
 .releaserc
 .travis.yml
 .idea
+coverage
+badge.json
