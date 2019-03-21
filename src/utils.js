@@ -47,7 +47,6 @@ export function getComponentInfo(filename): ?Object {
         return info;
     }
     catch (ex) {
-        console.log(ex);
         return null;
     }
 }
