@@ -1,4 +1,4 @@
-# {{displayName}}
+### {{displayName}}
 
 {{#hastag description "author"}}
 __author : {{tag description "author"}}__
@@ -7,7 +7,7 @@ __author : {{tag description "author"}}__
 {{tag description "description"}}
 
 {{#if props}}
-## props
+#### props
 
 {{#forin props}}
 - `{{$key}}{{#unless required}}?{{/unless}}` **{{flowType/name}}** {{tag description "description"}}
@@ -15,7 +15,7 @@ __author : {{tag description "author"}}__
 {{/if}}
 
 {{#if methods.length}}
-## methods
+#### methods
 
 {{#each methods}}
 {{#hasnottag docblock "private"}}
@@ -27,7 +27,7 @@ __author : {{tag description "author"}}__
 {{/if}}
 
 {{#hastag description "example"}}
-## Examples
+#### Examples
 
 ```javascript
 {{{tag description "example"}}}
