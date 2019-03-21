@@ -41,13 +41,13 @@
     "react": "^16.8.4",
     "rollup": "^1.6.0",
     "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-flow": "^1.1.1",
     "semantic-release": "^15.13.3"
   },
   "dependencies": {
     "fs-extra": "^7.0.1",
     "handlebars": "^4.1.0",
     "react-docgen": "^4.1.0",
-    "rollup-plugin-flow": "^1.1.1",
     "walk": "^2.3.14",
     "yargs": "^13.2.2"
   },
@@ -55,5 +55,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
