@@ -13,7 +13,7 @@ test("generate doc", () => {
     expect(str).toEqual(expect.stringContaining("- `name` **string** 姓名"));
     expect(str).toEqual(expect.stringContaining("- `age?` **number** 年龄"));
     expect(str).toEqual(expect.stringContaining("- `getName` **()=>string**"));
-    expect(str).toEqual(expect.stringContaining("- `getAge` **()=>number | undefined**"));
+    expect(str).toEqual(expect.stringContaining("- `getAge` **()=>number | undefined** 获得年龄"));
     expect(str).toEqual(expect.stringContaining("- `setAge` **(age:number)=>void**"));
     expect(str).not.toEqual(expect.stringContaining("- `_aPrivateMethod`"));
     expect(str).not.toEqual(expect.stringContaining("- `ignoreMethod`"));

@@ -36,6 +36,9 @@ export default class TestComponent extends React.Component<Props, State> {
         return this.props.name;
     }
 
+    /**
+     * 获得年龄
+     */
     getAge(): number | undefined {
         return this.props.age;
     }

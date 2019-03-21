@@ -7,14 +7,16 @@ import fs from "fs"
 import path from "path"
 
 Handlerbars.registerHelper("tag", (value, tagName, option) => {
-    if (tagName === "description") {
-        if (value.description && value.description.length > 0) {
-            return value.description
+    if (value) {
+        if (tagName === "description") {
+            if (value.description && value.description.length > 0) {
+                return value.description
+            }
         }
-    }
-    const tag = value.tags.find(f => f.title === tagName);
-    if (tag) {
-        return tag.description;
+        const tag = value.tags.find(f => f.title === tagName);
+        if (tag) {
+            return tag.description;
+        }
     }
     return "";
 });

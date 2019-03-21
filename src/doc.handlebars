@@ -20,7 +20,7 @@ __author : {{tag description "author"}}__
 {{#each methods}}
 {{#hasnottag docblock "private"}}
 {{#hasnottag docblock "ignore"}}
-- `{{name}}` **({{#each params}}{{name}}{{#if optional}}?{{/if}}:{{flow type}}{{/each}})=>{{flow returns/type}}**
+- `{{name}}` **({{#each params}}{{name}}{{#if optional}}?{{/if}}:{{flow type}}{{/each}})=>{{flow returns/type}}** {{tag docblock "description"}}
 {{/hasnottag}}
 {{/hasnottag}}
 {{/each}}
